@@ -12,6 +12,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'plugin:prettier/recommended', 'prettier/react'],
+  settings: {
+    'import/resolver': 'babel-plugin-root-import',
+  },
   rules: {
     'prettier/prettier': 'error',
   },
