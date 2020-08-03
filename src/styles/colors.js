@@ -8,6 +8,8 @@ const background = '#f4f8fb';
 const footerDark = '#e6e7e8';
 const footerLight = '#edeef0';
 
+const cardBorder = '#d8dde6';
+
 export default {
   white,
   red,
@@ -15,4 +17,5 @@ export default {
   background,
   footerDark,
   footerLight,
+  cardBorder,
 };

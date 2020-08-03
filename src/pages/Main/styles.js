@@ -45,4 +45,9 @@ export const Filters = styled.div`
   justify-content: center;
 `;
 
-export const Cards = styled.div``;
+export const Cards = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+`;
