@@ -13,12 +13,14 @@ import { Container, Content, Cards, Filters } from './styles';
 
 function Main() {
   const [search, setSearch] = useState('');
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('name');
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [loading, setLoading] = useState(true);
 
   const [characters, setCharacters] = useState([]);
+
+  useEffect(() => setPage(1), [sort, search]);
 
   useEffect(() => {
     const apiFetch = async () => {
@@ -29,6 +31,7 @@ function Main() {
           limit: 12,
           offset: (page - 1) * 12,
           nameStartsWith: search || undefined,
+          orderBy: sort,
         },
       });
 
@@ -54,7 +57,7 @@ function Main() {
 
           <Filters>
             <Search search={search} setSearch={setSearch} />
-            <Sort></Sort>
+            <Sort sort={sort} setSort={setSort}></Sort>
           </Filters>
 
           {!loading && (
