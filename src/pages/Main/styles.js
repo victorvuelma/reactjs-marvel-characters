@@ -42,7 +42,9 @@ export const Content = styled.section`
 
 export const Filters = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
+
+  margin: 10px 0 30px 0;
 `;
 
 export const Cards = styled.div`

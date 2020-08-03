@@ -5,11 +5,11 @@ import Footer from '~/components/Footer';
 import Pagination from '~/components/Pagination';
 import Search from '~/components/Search';
 import Sort from '~/components/Sort';
+import Card from '~/components/Card';
 
 import api from '~/services/api';
 
 import { Container, Content, Cards, Filters } from './styles';
-import Card from '~/components/Card';
 
 function Main() {
   const [search, setSearch] = useState('');
@@ -28,6 +28,7 @@ function Main() {
         params: {
           limit: 12,
           offset: (page - 1) * 12,
+          nameStartsWith: search || undefined,
         },
       });
 
@@ -52,7 +53,7 @@ function Main() {
           <h1>Character</h1>
 
           <Filters>
-            <Search></Search>
+            <Search search={search} setSearch={setSearch} />
             <Sort></Sort>
           </Filters>
 
