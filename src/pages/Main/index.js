@@ -14,22 +14,35 @@ import Card from '~/components/Card';
 function Main() {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('');
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     const apiFetch = async () => {
-      const response = await api.get('characters');
+      setLoading(true);
+
+      const response = await api.get('characters', {
+        params: {
+          limit: 12,
+          offset: (page - 1) * 12,
+        },
+      });
 
       if (response.data && response.data.data) {
         const data = response.data.data;
 
+        setPageCount(Math.ceil(data.total / 12));
         setCharacters(data.results);
       }
+
+      setLoading(false);
     };
 
     apiFetch();
-  }, [search, sort]);
+  }, [search, sort, page]);
 
   return (
     <Container>
@@ -43,12 +56,19 @@ function Main() {
             <Sort></Sort>
           </Filters>
 
-          <Cards>
-            {characters &&
-              characters.map((character) => <Card character={character} />)}
-          </Cards>
-
-          <Pagination></Pagination>
+          {!loading && (
+            <>
+              <Cards>
+                {characters &&
+                  characters.map((character) => <Card character={character} />)}
+              </Cards>
+              <Pagination
+                currentPage={page}
+                setPage={setPage}
+                pageCount={pageCount}
+              ></Pagination>
+            </>
+          )}
         </Content>
       </div>
       <Footer />

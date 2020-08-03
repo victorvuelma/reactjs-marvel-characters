@@ -9,6 +9,7 @@ const footerDark = '#e6e7e8';
 const footerLight = '#edeef0';
 
 const cardBorder = '#d8dde6';
+const paginationText = '#c2cbd2';
 
 export default {
   white,
@@ -18,4 +19,5 @@ export default {
   footerDark,
   footerLight,
   cardBorder,
+  paginationText,
 };
