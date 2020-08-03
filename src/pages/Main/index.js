@@ -7,9 +7,11 @@ import Search from '~/components/Search';
 import Sort from '~/components/Sort';
 import Card from '~/components/Card';
 
+import loadingSpinner from '~/assets/svg/loading.svg';
+
 import api from '~/services/api';
 
-import { Container, Content, Cards, Filters } from './styles';
+import { Container, Content, Cards, Filters, Loading } from './styles';
 
 function Main() {
   const [search, setSearch] = useState('');
@@ -60,21 +62,24 @@ function Main() {
             <Sort sort={sort} setSort={setSort}></Sort>
           </Filters>
 
-          {!loading && (
-            <>
-              <Cards>
-                {characters &&
-                  characters.map((character) => (
-                    <Card key={character.id} character={character} />
-                  ))}
-              </Cards>
-              <Pagination
-                currentPage={page}
-                setPage={setPage}
-                pageCount={pageCount}
-              ></Pagination>
-            </>
+          {loading ? (
+            <Loading>
+              <img src={loadingSpinner} />
+            </Loading>
+          ) : (
+            <Cards>
+              {characters &&
+                characters.map((character) => (
+                  <Card key={character.id} character={character} />
+                ))}
+            </Cards>
           )}
+
+          <Pagination
+            currentPage={page}
+            setPage={setPage}
+            pageCount={pageCount}
+          ></Pagination>
         </Content>
       </div>
       <Footer />

@@ -33,10 +33,25 @@ export const Content = styled.section`
   box-shadow: 0px 2px 6px 0px rgba(69, 91, 99, 0.08);
   border-radius: 8px;
 
+  display: flex;
+  flex-direction: column;
+
   h1 {
     color: ${colors.red};
     font-size: 36px;
     font-weight: 300;
+  }
+`;
+
+export const Loading = styled.div`
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 50px;
   }
 `;
 
