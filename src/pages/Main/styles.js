@@ -39,3 +39,10 @@ export const Content = styled.section`
     font-weight: 300;
   }
 `;
+
+export const Filters = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Cards = styled.div``;
