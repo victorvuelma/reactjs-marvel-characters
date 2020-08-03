@@ -1,9 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import { Container } from "./styles";
+import marvelLogo from '~/assets/images/marvelLogo.png';
+
+import { Container } from './styles';
 
 function Header() {
-  return <Container />;
+  return (
+    <Container>
+      <img src={marvelLogo}></img>
+    </Container>
+  );
 }
 
 export default Header;
