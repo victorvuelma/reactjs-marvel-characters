@@ -37,7 +37,6 @@ function Pagination({ setPage, currentPage, pageCount }) {
         <input
           type="number"
           min="1"
-          max={pageCount}
           value={newPage}
           onChange={(event) => setNewPage(Number(event.target.value))}
         ></input>
