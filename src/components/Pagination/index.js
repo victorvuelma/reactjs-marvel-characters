@@ -11,7 +11,7 @@ function Pagination({ setPage, currentPage, pageCount }) {
 
   const [pageChangeCallback] = useDebouncedCallback(() => {
     if (newPage && !isNaN(newPage)) {
-      setPage(Number(newPage));
+      setPage(newPage > pageCount ? pageCount : newPage);
     }
   }, 1000);
 
@@ -31,13 +31,13 @@ function Pagination({ setPage, currentPage, pageCount }) {
         disabled={currentPage === 1}
         onClick={() => setPage(currentPage - 1)}
       >
-        <img src={arrowLeft} />
+        <img src={arrowLeft} alt="Página Anterior" />
       </button>
       <div>
         <input
           type="number"
           min="1"
-          max="pageCount"
+          max={pageCount}
           value={newPage}
           onChange={(event) => setNewPage(Number(event.target.value))}
         ></input>
@@ -47,7 +47,7 @@ function Pagination({ setPage, currentPage, pageCount }) {
         disabled={currentPage === pageCount}
         onClick={() => setPage(currentPage + 1)}
       >
-        <img src={arrowRight} />
+        <img src={arrowRight} alt="Próxima Página" />
       </button>
     </Container>
   );

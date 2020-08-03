@@ -60,7 +60,9 @@ function Main() {
             <>
               <Cards>
                 {characters &&
-                  characters.map((character) => <Card character={character} />)}
+                  characters.map((character) => (
+                    <Card key={character.id} character={character} />
+                  ))}
               </Cards>
               <Pagination
                 currentPage={page}

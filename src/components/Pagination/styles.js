@@ -45,6 +45,19 @@ export const Container = styled.div`
   }
 
   div {
+    input {
+      width: 40px;
+      height: 30px;
+
+      margin-right: 10px;
+      border-radius: 3px;
+      border-bottom: 3px solid ${colors.inputBorder};
+
+      text-align: center;
+
+      font-size: 14px;
+    }
+
     label {
       color: ${colors.paginationText};
 

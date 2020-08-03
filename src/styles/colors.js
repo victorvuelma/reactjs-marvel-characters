@@ -11,6 +11,8 @@ const footerLight = '#edeef0';
 const cardBorder = '#d8dde6';
 const paginationText = '#c2cbd2';
 
+const inputBorder = '#9b9b9b';
+
 export default {
   white,
   red,
@@ -20,4 +22,5 @@ export default {
   footerLight,
   cardBorder,
   paginationText,
+  inputBorder,
 };
